@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
 function loadEmployeesData() {
     try {
         const jsonFilePath = path.join(__dirname, 'employees.json');
@@ -31,7 +30,6 @@ function createSummaryList(employees) {
 function calculateTotalSalaryExpenditure() {
     const experiencedEmployees = filterEmployeesByExperience();
     if(!experiencedEmployees) return 0;
-
     return experiencedEmployees.reduce((total, emp) => total + emp.salary, 0);
 }
 function displaySortedEmployees() {
@@ -53,7 +51,6 @@ function displaySortedEmployees() {
 function displaySummaryWithBonuses() {
     const experiencedEmployees = filterEmployeesByExperience();
     const summaryList = createSummaryList(experiencedEmployees);
-
     console.log('Summary');
     summaryList.forEach((emp, index) => {
         console.log(`${index + 1}. ${emp.name}`);
@@ -62,7 +59,6 @@ function displaySummaryWithBonuses() {
         console.log('-'.repeat(40));
         
     })
-
     console.log(`Total Experienced Employees: ${summaryList.length}`);
 }
 function displayTotalExpenditure() {
@@ -76,9 +72,6 @@ function runHRAnalytics() {
     displaySortedEmployees();
     displaySummaryWithBonuses();
     displayTotalExpenditure();
-    
-    console.log('Report Complete!');
 }
-
 runHRAnalytics();
 
